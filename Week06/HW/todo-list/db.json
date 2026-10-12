@@ -1,0 +1,15 @@
+{
+  "todos": [
+    {
+      "title": "1",
+      "done": false,
+      "id": "1Dp1sxOKWq8"
+    },
+    {
+      "title": "2",
+      "done": false,
+      "id": "zCR4kDKSiGc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
