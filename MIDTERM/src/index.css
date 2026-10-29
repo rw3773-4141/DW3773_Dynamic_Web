@@ -1,0 +1,92 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background-color: white;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('/nyc-line-art-v6.png');
+  background-repeat: no-repeat;
+  background-position: center 120%;
+  background-size: 1800px auto;
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+h1, h2, h3, p { margin-top: 0; }
+
+.app-shell { max-width: 980px; margin: 0 auto; padding: 32px 24px 56px; }
+.hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding: 24px 0 30px; }
+.hero-copy { flex: 1; }
+.eyebrow { margin-bottom: 8px; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+h1 { margin-bottom: 12px; font-size: 60px; line-height: 1; }
+.intro { max-width: 520px; margin-bottom: 0; line-height: 1.5; }
+.hero-stats { display: flex; width: 300px; padding: 16px 0; border: 1px solid #bbb; border-radius: 8px; background-color: rgba(255, 255, 255, 0.98); }
+.hero-stats div { display: flex; flex-direction: column; align-items: center; width: 50%; }
+.hero-stats div + div { border-left: 1px solid #bbb; }
+.hero-stats strong { font-size: 28px; line-height: 1; }
+.hero-stats span { margin-top: 5px; font-size: 13px; }
+
+.panel { margin-top: 18px; padding: 28px 30px; border: 1px solid #bbb; border-radius: 8px; background-color: rgba(255, 255, 255, 0.98); }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.section-heading .eyebrow { margin-bottom: 4px; }
+h2 { margin-bottom: 0; font-size: 26px; }
+.total-count { font-size: 13px; }
+
+.restaurant-form { display: flex; align-items: flex-end; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: bold; }
+.name-field { flex: 2; }
+.area-field { flex: 1; }
+.field input, .field select, .area-filter select { width: 100%; height: 44px; padding: 10px 12px; border: 1px solid #888; border-radius: 5px; background-color: white; color: #111; }
+.primary-button { height: 44px; padding: 10px 18px; border: 1px solid #111; border-radius: 5px; background-color: #111; color: white; font-weight: bold; }
+.primary-button:hover { background-color: #333; }
+
+.filters { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; padding-bottom: 16px; }
+.status-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.status-filters button { height: 40px; padding: 8px 15px; border: 1px solid #888; border-radius: 5px; background-color: white; color: #111; font-size: 13px; font-weight: bold; }
+.status-filters .selected-filter { border-color: #111; background-color: #111; color: white; }
+.area-filter { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: bold; }
+.area-filter select { min-width: 170px; height: 40px; padding: 7px 10px; }
+
+.restaurant-list { margin: 0; padding: 0; list-style: none; }
+.restaurant-row { border-top: 1px solid #bbb; }
+.restaurant-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 2px; }
+.restaurant-info { min-width: 0; }
+.area-badge { display: inline-block; padding: 5px 9px; border: 1px solid #888; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+h3 { margin: 10px 0; font-size: 22px; overflow-wrap: anywhere; }
+.visit-label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.visit-label input { width: 17px; height: 17px; margin: 0; }
+.row-actions { display: flex; gap: 17px; }
+.text-button { padding: 7px 2px; border: 0; background-color: transparent; color: #111; font-size: 13px; font-weight: bold; text-decoration: underline; }
+.delete-button { font-weight: normal; }
+.edit-form { padding: 20px 2px; }
+.edit-actions { display: flex; align-items: center; gap: 10px; }
+
+.state-message { margin: 0; padding: 24px; border: 1px solid #bbb; border-radius: 5px; line-height: 1.5; }
+.empty-message { text-align: center; }
+.empty-message strong { display: block; font-size: 18px; }
+.empty-message p { margin: 8px 0 0; }
+.error-message { border-style: dashed; }
+
+@media (max-width: 700px) {
+  body { background-position: center 125%; background-size: 2200px auto; }
+  .app-shell { padding: 16px 14px 38px; }
+  .hero { flex-direction: column; align-items: stretch; gap: 20px; padding: 18px 0 22px; }
+  h1 { font-size: 46px; }
+  .hero-stats { width: 100%; }
+  .panel { padding: 22px 20px; }
+  .restaurant-form { flex-direction: column; align-items: stretch; }
+  .filters { flex-direction: column; align-items: stretch; }
+  .area-filter { justify-content: space-between; }
+  .area-filter select { max-width: 220px; }
+  .restaurant-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 390px) {
+  .panel { padding: 20px 16px; }
+  .list-title-row { flex-wrap: wrap; gap: 8px; }
+  .area-filter select { min-width: 0; }
+}
