@@ -1,6 +1,6 @@
-# Week 10 — Redux Toolkit in class
+# Week 10 Class
 
-Bauhaus Prints follows the class print-shop exercise. `Header`, `Catalog`, and `Cart` share a Redux store through the Provider in `main.jsx`.
+This is the Bauhaus Prints shop from class. I used Redux to share the cart and favourites between the catalog, header, and cart components.
 
 ## Run
 
@@ -9,17 +9,16 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints. This exercise uses the imported `PRINTS` array, so it does not need `npm run server`. Refreshing the page resets the cart, favourites, and filters.
+Open the local link from Vite. The prints come from `src/data/prints.js`, so this project does not need `npm run server`. Refreshing the page resets the cart, favourites, and filters.
 
-## Class steps completed
+## Redux state
 
-- `cartSlice`: add a print, increase or decrease its quantity, remove a row, and clear the cart.
-- `uiSlice`: colour and favourites-only filters.
-- `favouritesSlice`: toggle a print id in the saved ids array.
-- Selectors provide the cart rows, item count, total, favourite ids, and favourite count.
-- The catalog stars and header count both read from Redux. The filtered catalog is calculated when rendering.
-- `configureStore` enables the browser's Redux DevTools connection by default.
+- `cartSlice` keeps the items and quantities. I can add prints, change the quantity, remove an item, or clear the cart.
+- `uiSlice` keeps the colour filter and the favourites-only filter.
+- `favouritesSlice` keeps the saved print ids.
 
-The homework continuation is in the existing [HW](HW) folder. Run `npm run lint` and `npm run build` to check this class project; the class lint command excludes the separate homework project.
+The header uses selectors to get the cart count, total price, and favourite count. The stars also read from the store, so they stay in sync with the count and filter.
 
-Based on the instructor's [Week 10 notes](https://github.com/Kadee80/Dynamic_Web_Fall26/blob/main/Week10/README.md) and [class project](https://github.com/Kadee80/Dynamic_Web_Fall26/tree/main/Week10/end-of-class/week10-redux).
+The homework version is in [HW](HW). Run `npm run lint` and `npm run build` to check this project.
+
+Based on the [class notes](https://github.com/Kadee80/Dynamic_Web_Fall26/blob/main/Week10/README.md) and [class code](https://github.com/Kadee80/Dynamic_Web_Fall26/tree/main/Week10/end-of-class/week10-redux).

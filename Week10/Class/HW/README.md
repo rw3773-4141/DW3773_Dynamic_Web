@@ -1,6 +1,6 @@
-# Week 10 homework — Bauhaus Prints
+# Week 10 Homework
 
-This continues the Redux class exercise. Each catalog card has a favourite star, the header shows the saved count, and the favourites-only filter works together with the colour filter.
+I added favourites to the print shop. Clicking a star saves or removes a print, and the header shows how many are saved. I also added a favourites-only filter that works with the colour filter.
 
 ## Run
 
@@ -9,33 +9,28 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints. No separate server is needed: the print catalog is imported from `src/data/prints.js`. The store resets when the page refreshes. Use `npm run lint` and `npm run build` to check the project.
+Open the local link from Vite. This project uses the prints in `src/data/prints.js`, so it does not need `npm run server`. The store resets after refreshing.
 
-## Favourites slice
+## Favourites
 
-`src/features/favouritesSlice.js` owns `ids`, an array of print ids. `favouriteToggled(print.id)` adds an id once or removes it if it is already saved. The reducer is registered as the third branch of the store, alongside `cart` and `ui`.
+`favouritesSlice.js` keeps an array of print ids. `favouriteToggled(print.id)` adds the id if it is not saved and removes it if it is already there. I added this reducer to the store with `cart` and `ui`, and used selectors for the stars and header count.
 
-The star uses `selectFavouriteIds` and the header uses `selectFavouriteCount`. Neither component keeps a separate local favourite value.
+## Questions
 
-**Which slice owns “show only favourites”?** It belongs in `uiSlice` because it controls which cards are visible. Turning the filter off should not remove the saved favourites.
+1. I put the favourites-only filter in `uiSlice` because it changes what is shown on screen. Turning the filter off should keep the saved favourites.
+2. The action type is `favourites/favouriteToggled`. In DevTools, the first favourite action changed `favourites.ids` from `[]` to `['p1']`, while the cart and ui stayed the same.
+3. I only store ids because the title, colour, and price are already in `PRINTS`. This keeps the catalog separate from the user's choices, and the same id list works for the stars, count, and filter.
 
-**What is the action type?** `favourites/favouriteToggled`. In Redux DevTools, the first favourite action added `p1` at index 0 of `favourites.ids`, changing `[]` to `['p1']`. The cart and ui branches did not change, and the comment at the top of the slice records this diff.
+## DevTools check
 
-**Why store ids?** Favourites describe the user's saved choices, while `PRINTS` describes the catalog. Storing ids keeps the catalog data in one place and lets the same saved list drive the stars, count, and filter without copying each print or adding a user-specific flag to it.
+I saved Composition I and Counter Grid, added Composition I to the cart, and turned on the favourites-only filter. When I moved the history slider back to `@@INIT`, the favourites and cart were empty and the filter was off. Moving it forward to action 4 brought back both favourites, one cart item, the $40 total, and the filter.
 
-## Watch it in Redux DevTools
+The action type and diff are also in a comment at the top of `favouritesSlice.js`.
 
-`configureStore` provides the DevTools connection. With the Redux DevTools browser extension available:
+## Final project state
 
-1. Open the app's Redux tab and click the star on Composition I.
-2. Select `favourites/favouriteToggled` and inspect the diff: `favourites.ids` gains `p1`.
-3. Save another print, add something to the cart, and change a filter.
-4. Move the history slider back to the initial state, then forward again. The stars, header count, filters, and cart should follow that selected state.
+Places to Eat will need the restaurant list, form inputs and touched fields, loading and saving states, error messages, edit visibility, and area and visit filters. I will keep the list, loading errors, and filters in `App` with `useState` and pass them through props, while each form or row uses its own `useState` for its inputs, touched fields, save status, errors, and edit visibility. I don't think I need Context or Redux because this app only has one page and a few components that share data.
 
-Checked in Chrome Redux DevTools: I saved Composition I and Counter Grid, added Composition I to the cart, and turned on the favourites-only filter. Moving the history slider back to `@@INIT (0)` restored zero favourites, an empty cart, and the unchecked filter. Moving it forward to action 4 restored both filled stars, a favourite count of 2, one cart item totaling $40, and the checked filter.
+Run `npm run lint` and `npm run build` to check the project.
 
-## Final project state plan — Places to Eat
-
-My final project will have the restaurant list, create and edit fields, touched fields, saving/loading/error states, edit visibility, and area and visit-status filters. I will use `useState` inside each form or row for its inputs, touched fields, saving messages, and edit visibility, and keep the restaurant list, loading/error states, and filters in `App` with `useState` and pass the values and handlers through props. I do not need Context or Redux for this one-screen version because only a few nearby components share the data.
-
-Assignment: [Week 10 homework](https://github.com/Kadee80/Dynamic_Web_Fall26/blob/main/Week10/HW.md).
+[Week 10 assignment](https://github.com/Kadee80/Dynamic_Web_Fall26/blob/main/Week10/HW.md).

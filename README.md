@@ -1,15 +1,15 @@
 # DW3773webdev
 
 ## Assignments
+
 - Week01 assignments are named "index.html" and "recipe.md" inside Week01 folder
 
 ## Midterm
 
 ## Final
 
-## Week 10 — Final project state plan
+## Week 10
 
-My final project will have the restaurant list, create and edit fields, touched fields, saving/loading/error states, edit visibility, and area and visit-status filters. I will use `useState` inside each form or row for its inputs, touched fields, saving messages, and edit visibility, and keep the restaurant list, loading/error states, and filters in `App` with `useState` and pass the values and handlers through props. I do not need Context or Redux for this one-screen version because only a few nearby components share the data.
+Places to Eat will need the restaurant list, form inputs and touched fields, loading and saving states, error messages, edit visibility, and area and visit filters. I will keep the list, loading errors, and filters in `App` with `useState` and pass them through props, while each form or row uses its own `useState` for its inputs, touched fields, save status, errors, and edit visibility. I don't think I need Context or Redux because this app only has one page and a few components that share data.
 
-The [class exercise](Week10/Class) and [homework](Week10/Class/HW) are in the existing Week 10 folders.
-
+[Class](Week10/Class) · [Homework](Week10/Class/HW)
