@@ -1,0 +1,22 @@
+{
+  "restaurants": [
+    {
+      "name": "123",
+      "area": "Manhattan",
+      "visited": true,
+      "id": 1
+    },
+    {
+      "name": "345",
+      "area": "Brooklyn",
+      "visited": false,
+      "id": 2
+    },
+    {
+      "name": "789",
+      "area": "Queens",
+      "visited": false,
+      "id": 3
+    }
+  ]
+}
