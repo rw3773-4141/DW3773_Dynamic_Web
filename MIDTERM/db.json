@@ -1,16 +1,10 @@
 {
   "restaurants": [
     {
-      "name": "123 cafe",
-      "area": "Manhattan",
+      "name": "789",
+      "area": "Queens",
       "visited": false,
-      "id": 1
-    },
-    {
-      "name": "345 cafe",
-      "area": "Brooklyn",
-      "visited": false,
-      "id": 2
+      "id": 3
     }
   ]
 }
