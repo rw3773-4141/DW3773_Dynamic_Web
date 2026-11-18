@@ -4,7 +4,7 @@
 */
 import {useState, useRef, useEffect} from 'react'
 import {GoChevronDown} from 'react-icons/go'
-import Panel from '../components/Panel'
+import Panel from './Panel'
 const Dropdown = (props) => {
   // options is an array of objects each with a label and a value
   const {options, onChange, value} = props
